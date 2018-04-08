@@ -1,0 +1,58 @@
+@import "bootstrap/bootstrap.less";
+
+html {
+  height: 100%;
+  text-align: center;
+}
+
+body {
+  height: 100%;
+}
+
+.no-js body {
+  background-image: url("img/PonorBg.jpg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.wrap {
+  background-color: rgba(255, 253, 242, .75);
+  min-height: 100%;
+}
+
+.logo {
+  a {
+    .hide-text();
+    display: block;
+    .size(312px; 178px);
+    .img-retina("img/PonorHeader.png"; "img/PonorHeader@2x.png"; 312px; 178px);
+    margin: @line-height-computed auto (@line-height-computed * 2);
+  }
+}
+
+.player {
+  overflow: hidden;
+  iframe {
+    .center-block();
+  }
+  .media {
+    margin-top: @line-height-computed;
+  }
+  margin-bottom: @line-height-computed * 2;
+}
+
+.shows,
+.links {
+  margin-bottom: @line-height-computed;
+}
+
+.ie-notice {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+
+  a {
+    color: inherit;
+    border-color: #fff;
+  }
+}

@@ -10,7 +10,7 @@ body {
 }
 
 .no-js body {
-  background-image: url("img/PonorBg.jpg");
+  background-image: url("../../img/PonorBg.jpg");
   background-position: center bottom;
   background-repeat: no-repeat;
 }
@@ -22,11 +22,16 @@ body {
 
 .logo {
   a {
-    .hide-text();
+    border-bottom: 0;
+    padding-bottom: 0;
     display: block;
     .size(312px; 178px);
-    .img-retina("img/PonorHeader.png"; "img/PonorHeader@2x.png"; 312px; 178px);
+    .img-retina("../../img/PonorHeader.png"; "../../img/PonorHeader@2x.png"; 312px; 178px);
     margin: @line-height-computed auto (@line-height-computed * 2);
+  }
+
+  h1 {
+    .hide-text();
   }
 }
 
@@ -44,15 +49,4 @@ body {
 .shows,
 .links {
   margin-bottom: @line-height-computed;
-}
-
-.ie-notice {
-  background-color: red;
-  color: #fff;
-  padding: 10px;
-
-  a {
-    color: inherit;
-    border-color: #fff;
-  }
 }

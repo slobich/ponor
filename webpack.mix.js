@@ -27,10 +27,12 @@ mix.js('src/js/main.js', 'dist/js')
   .copyDirectory('src/font', 'dist/font')
   .copyDirectory('src/ico', 'dist/ico')
   .copy('node_modules/jquery/dist/jquery.min.js', 'dist/vendors/jquery.min.js')
-  .browserSync( {
+  .browserSync({
     proxy : 'ponor.test',
     files : [
       'src/**/*',
       'index.html',
     ]
-  } );;
+  })
+  .version()
+  .setPublicPath('dist');

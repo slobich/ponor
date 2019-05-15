@@ -1,8 +1,9 @@
 {
-    "/app.js": "/app.js",
-    "/css/style.css": "/css/style.css",
-    "/img/PonorHeader.png": "/img/PonorHeader.png",
-    "/img/PonorFacebookThumb.png": "/img/PonorFacebookThumb.png",
-    "/img/PonorHeader@2x.png": "/img/PonorHeader@2x.png",
-    "/img/PonorBg.jpg": "/img/PonorBg.jpg"
+    "/js/main.js": "/js/main.js?id=376766d1ccd2d511cd3a",
+    "/css/style.css": "/css/style.css?id=e0c4f0ee9e8c57bb43fd",
+    "/img/PonorHeader.png": "/img/PonorHeader.png?id=59e2729e833166aee80c",
+    "/img/PonorFacebookThumb.png": "/img/PonorFacebookThumb.png?id=49cd20ef578db1764a05",
+    "/img/PonorHeader@2x.png": "/img/PonorHeader@2x.png?id=3b0378a0933423777df8",
+    "/img/PonorBg.jpg": "/img/PonorBg.jpg?id=28062ad85ca6e15af2b1",
+    "/vendors/jquery.min.js": "/vendors/jquery.min.js?id=220afd743d9e9643852e"
 }

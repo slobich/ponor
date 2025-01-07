@@ -1,0 +1,25 @@
+---
+import Base from "../layouts/base.astro";
+import Shows from "../components/Shows.astro";
+import Links from "../data/links.json";
+---
+
+<Base>
+  <section class="player">
+    <h2>Download / Listen</h2>
+
+    <div class="iframe-wrap">
+      <iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=1129182996/size=large/bgcol=333333/linkcol=e32c14/minimal=true/transparent=true/" seamless></iframe>
+    </div>
+  </section>
+
+  <Shows type="upcoming" title="Shows" />
+
+  <section class="links">
+    <h2>Contact / Links</h2>
+
+    <ul>
+      {Links.map((link) => <li><a href={link.url}>{link.title}</a></li>)}
+    </ul>
+  </section>
+</Base>

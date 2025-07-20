@@ -1,0 +1,136 @@
+/**
+ * Main CSS
+ */
+
+:root {
+  --black: #222;
+  --red: #b01116;
+  --wrap-max-width: 72rem;
+  --header-font-size: 2.7rem;
+}
+
+@media (min-width: 120px) {
+  :root {
+    --wrap-max-width: 117rem;
+    --header-font-size: 3.6rem;
+  }
+}
+
+html {
+  font-size: 62.5%;
+  font-synthesis: none;
+  height: 100%;
+}
+
+body {
+  color: var(--black);
+  font-family: 'Noto Serif Variable', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 1.8rem;
+  line-height: 1.77777778;
+  position: relative;
+  height: 100%;
+}
+
+img {
+  max-inline-size: none;
+  max-block-size: none;
+}
+
+h1,
+h2 {
+  text-align: center;
+  line-height: 1.1;
+  margin-bottom: 3.2rem;
+}
+
+h1 {
+  font-size: 3.6rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+a {
+  text-decoration: underline;
+  text-underline-offset: 0.8rem;
+  text-decoration-color: var(--red);
+  transition-property: color, text-decoration-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: var(--red);
+  text-decoration-color: var(--red);
+}
+
+.wrap {
+  min-height: 100%;
+  max-width: var(--wrap-max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  background-color: rgba(255, 253, 242, .8);
+  padding-block: 3.2rem;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .3s ease-in;
+}
+
+.background.loaded {
+  opacity: 1;
+}
+
+header,
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6.4rem;
+}
+
+header {
+  margin-bottom: 3.2rem;
+}
+
+header > a img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+header > a h1 {
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+header > p {
+  font-size: var(--header-font-size);
+  line-height: 1.4;
+  text-align: center;
+  max-width: 58rem;
+}
+
+section > ul li {
+  text-align: center;
+}

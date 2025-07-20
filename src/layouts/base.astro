@@ -1,0 +1,58 @@
+---
+const { title = "Ponor" } = Astro.props;
+import '@fontsource-variable/noto-serif';
+import 'the-new-css-reset/css/reset.css';
+import "../styles/main.css";
+import { Image } from 'astro:assets';
+import logo from '../images/logo.png';
+import background from '../images/background.jpg';
+---
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{title}</title>
+    <meta name="description" content="Ponor is a HardCore Punk band from Zagreb, Croatia">
+    <link rel="canonical" href="http://www.ponor.net/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ponor">
+    <meta property="og:url" content="https://www.ponor.net/">
+    <meta property="og:site_name" content="Ponor">
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <header>
+        <a href={import.meta.env.DEV ? '/' : Astro.site}>
+          <Image densities={[1, 2]} width={312} height={178} src={logo} alt="Ponor logo" loading="eager" />
+          <h1>Ponor</h1>
+        </a>
+
+        <p>Ponor is a HardCore Punk band from Zagreb, Croatia.</p>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+    </div>
+
+    <Image class="background" src={background} alt="" loading="lazy" />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const bg = document.querySelector('.background');
+        if (bg && bg instanceof HTMLImageElement) {
+          bg.addEventListener('load', () => {
+            bg.classList.add('loaded');
+          });
+
+          if (bg.complete) {
+            bg.classList.add('loaded');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

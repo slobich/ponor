@@ -1,0 +1,68 @@
+---
+const { type = "upcoming", title = "Shows" } = Astro.props;
+import { parse } from 'csv-parse/sync';
+
+type Show = {
+  Date: string;
+  Link: string;
+  Venue: string;
+  City: string;
+  Country: string;
+};
+
+async function getShows(): Promise<Show[]> {
+  const res = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vTkshCo8-aAllKpSGWsUGkE1RC-0oyCIz_KJ_UpSztdk_k9OtuPTTdVBEGJn84R2sw6nsNRVcIEVU3S/pub?gid=0&single=true&output=csv');
+  const csvText = await res.text();
+  const records = parse(csvText, {
+    columns: true,
+    skip_empty_lines: true,
+    trim: true,
+  }) as Show[];
+  return records;
+}
+
+function formatDate(dateStr: string) {
+  const date = new Date(dateStr);
+  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const year = date.getFullYear();
+  return `${day}.${month}.${year}.`;
+}
+
+function filterShows(shows: Show[], type: "upcoming" | "past"): Show[] {
+  const now = new Date();
+  return shows.filter(show => {
+    const showDate = new Date(show.Date);
+    return type === "upcoming" ? showDate >= now : showDate < now;
+  });
+}
+
+const shows = await getShows();
+
+const sortedShows = [...shows].sort((a, b) =>
+  type === "upcoming"
+    ? new Date(a.Date).getTime() - new Date(b.Date).getTime()
+    : new Date(b.Date).getTime() - new Date(a.Date).getTime()
+);
+
+const filteredShows = filterShows(sortedShows, type);
+---
+
+{filteredShows.length > 0 && (
+  <section class="shows">
+    <h2>{title}</h2>
+    <ul>
+      {filteredShows.map((show) => {
+        const venueDisplay = show.Link
+          ? <a href={show.Link}>{show.Venue}</a>
+          : show.Venue;
+
+        return (
+          <li>
+            {formatDate(show.Date)} • {venueDisplay} • {show.City} ({show.Country})
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+)}

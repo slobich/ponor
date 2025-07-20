@@ -25,7 +25,7 @@ import background from '../images/background.jpg';
   <body>
     <div class="wrap">
       <header>
-        <a href={import.meta.env.DEV ? '/' : Astro.site}>
+        <a href={Astro.site}>
           <Image densities={[1, 2]} width={312} height={178} src={logo} alt="Ponor logo" loading="eager" />
           <h1>Ponor</h1>
         </a>
